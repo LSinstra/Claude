@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>Memo</title>
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Memo">
+  <meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-row">
+      <h1>Memo</h1>
+      <span class="count" id="count"></span>
+    </div>
+    <div class="search-wrap">
+      <svg class="search-icon" viewBox="0 0 16 16" aria-hidden="true">
+        <path fill="currentColor" d="M6.5 1a5.5 5.5 0 0 1 4.38 8.83l3.65 3.64a.75.75 0 1 1-1.06 1.06l-3.64-3.65A5.5 5.5 0 1 1 6.5 1Zm0 1.5a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/>
+      </svg>
+      <input type="search" id="search" placeholder="Search" autocomplete="off" autocapitalize="off" aria-label="Search notes">
+    </div>
+  </header>
+
+  <main class="notes" id="notes" aria-live="polite"></main>
+
+  <div class="empty" id="empty" hidden>
+    <div class="empty-icon">📝</div>
+    <p class="empty-title" id="empty-title">No memos yet</p>
+    <p class="empty-sub" id="empty-sub">Write your first note below — it stays on this device.</p>
+  </div>
+
+  <footer class="composer">
+    <form id="composer-form">
+      <textarea id="input" rows="1" placeholder="New memo…" autocomplete="off" aria-label="New memo"></textarea>
+      <button type="submit" id="send" aria-label="Save memo" disabled>↑</button>
+    </form>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
