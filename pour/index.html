@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>Pour</title>
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Pour">
+  <meta name="theme-color" content="#16173f">
+
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+    <header class="top">
+      <h1 id="level">Level 1</h1>
+      <div class="toolbar">
+        <button id="undo" type="button">↺ Undo</button>
+        <button id="restart" type="button">↻ Restart</button>
+        <button id="extra" type="button">＋ Tube</button>
+      </div>
+    </header>
+
+    <main class="tubes" id="tubes"></main>
+  </div>
+
+  <div class="overlay hidden" id="overlay">
+    <div class="overlay-card">
+      <h2 id="ov-title"></h2>
+      <p id="ov-sub"></p>
+      <p class="hint" id="ov-hint"></p>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
