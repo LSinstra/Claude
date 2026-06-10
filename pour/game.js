@@ -19,6 +19,10 @@
     "#f2f2f7", // white
   ];
 
+  const TILT_MS = 240;
+  const POUR_MS = 340;
+  const RETURN_MS = 240;
+
   const $level = document.getElementById("level");
   const $tubes = document.getElementById("tubes");
   const $undo = document.getElementById("undo");
@@ -36,9 +40,18 @@
   let extraUsed = false;
   let sel = -1;
   let overlayMode = null; // "win" | "stuck" | null
-  let justPoured = null; // {tube, count} for the pour-in animation
+  let animating = false;
 
   const deep = (t) => t.map((a) => a.slice());
+
+  function shade(hex, k) {
+    // k > 0 mixes toward white, k < 0 toward black
+    const n = parseInt(hex.slice(1), 16);
+    const t = k < 0 ? 0 : 255;
+    const p = Math.abs(k);
+    const ch = (v) => Math.round(v + (t - v) * p);
+    return `rgb(${ch(n >> 16)}, ${ch((n >> 8) & 255)}, ${ch(n & 255)})`;
+  }
 
   function shuffle(arr) {
     for (let i = arr.length - 1; i > 0; i--) {
@@ -140,25 +153,89 @@
   }
 
   function pour(a, b) {
+    animating = true;
     undoStack.push(deep(tubes));
     if (undoStack.length > 200) undoStack.shift();
+
     const A = tubes[a];
     const B = tubes[b];
+    const color = A[A.length - 1];
+    const hex = PALETTE[color];
     const amount = Math.min(topRun(A), CAP - B.length);
-    for (let i = 0; i < amount; i++) B.push(A.pop());
-    justPoured = { tube: b, count: amount };
+    const srcRunLen = topRun(A);
+    const tgtRunLen = B.length ? topRun(B) : 0;
+    const tgtFill = B.length;
+
+    const srcEl = $tubes.children[a];
+    const tgtEl = $tubes.children[b];
+    srcEl.classList.remove("selected");
     sel = -1;
-    save();
-    render();
-    if (won()) {
-      setTimeout(() => showOverlay("win"), 350);
-    } else if (!hasUsefulMove()) {
-      setTimeout(() => showOverlay("stuck"), 350);
-    }
+
+    const s = srcEl.getBoundingClientRect();
+    const t = tgtEl.getBoundingClientRect();
+
+    // fly the tube so its mouth (top center, the transform origin) hovers
+    // above the target, tilted with the body swinging back the way it came
+    const side = s.left + s.width / 2 <= t.left + t.width / 2 ? 1 : -1;
+    const mouthX = t.left + t.width / 2;
+    const mouthY = t.top - 26;
+    const dx = mouthX - (s.left + s.width / 2);
+    const dy = mouthY - s.top;
+    srcEl.classList.add("pouring");
+    srcEl.style.transform = `translate(${dx}px, ${dy}px) rotate(${side * 70}deg)`;
+
+    setTimeout(() => {
+      // liquid stream from the mouth down to the target's surface
+      const surfaceY = t.top + 3 + (t.height - 6) * (1 - tgtFill / CAP);
+      const stream = document.createElement("div");
+      stream.className = "stream";
+      stream.style.left = mouthX - 3 + "px";
+      stream.style.top = mouthY + 6 + "px";
+      stream.style.height = Math.max(10, surfaceY - mouthY - 6) + "px";
+      stream.style.background = `linear-gradient(180deg, ${shade(hex, 0.3)}, ${hex})`;
+      document.body.append(stream);
+
+      // drain the source's top run
+      const srcRunEl = srcEl.querySelector(".liquid").lastElementChild;
+      const newSrcH = (srcRunLen - amount) * 25;
+      srcRunEl.style.height = newSrcH + "%";
+      if (newSrcH === 0) srcRunEl.style.opacity = "0";
+
+      // raise the target's level
+      const tgtLiquid = tgtEl.querySelector(".liquid");
+      if (tgtFill > 0) {
+        tgtLiquid.lastElementChild.style.height = (tgtRunLen + amount) * 25 + "%";
+      } else {
+        const run = makeRun(color, 0, true);
+        tgtLiquid.append(run);
+        run.offsetHeight; // flush layout so the height change transitions
+        run.style.height = amount * 25 + "%";
+      }
+
+      setTimeout(() => {
+        stream.style.transition = "transform 0.14s ease";
+        stream.style.transformOrigin = "bottom";
+        stream.style.transform = "scaleY(0)";
+        setTimeout(() => stream.remove(), 150);
+
+        srcEl.style.transform = "";
+
+        // commit the move
+        for (let i = 0; i < amount; i++) B.push(A.pop());
+        save();
+
+        setTimeout(() => {
+          render();
+          animating = false;
+          if (won()) showOverlay("win");
+          else if (!hasUsefulMove()) showOverlay("stuck");
+        }, RETURN_MS);
+      }, POUR_MS);
+    }, TILT_MS);
   }
 
   function tapTube(i) {
-    if (overlayMode) return;
+    if (overlayMode || animating) return;
     if (sel < 0) {
       if (tubes[i].length) {
         sel = i;
@@ -175,6 +252,31 @@
     }
   }
 
+  function makeRun(c, n, isTop) {
+    const el = document.createElement("div");
+    el.className = "run";
+    const hex = PALETTE[c];
+    el.style.height = n * 25 + "%";
+    el.style.background = `linear-gradient(180deg, ${shade(hex, 0.22)} 0%, ${hex} 45%, ${shade(hex, -0.14)} 100%)`;
+    if (isTop) {
+      const surface = document.createElement("div");
+      surface.className = "surface";
+      surface.style.background = shade(hex, 0.42);
+      el.append(surface);
+    }
+    return el;
+  }
+
+  function runsOf(t) {
+    const runs = [];
+    for (const c of t) {
+      const last = runs[runs.length - 1];
+      if (last && last.c === c) last.n++;
+      else runs.push({ c, n: 1 });
+    }
+    return runs;
+  }
+
   function render() {
     $level.textContent = `Level ${level}`;
     $undo.disabled = !undoStack.length;
@@ -186,15 +288,8 @@
         tube.className = "tube" + (i === sel ? " selected" : "");
         const liquid = document.createElement("div");
         liquid.className = "liquid";
-        t.forEach((c, j) => {
-          const seg = document.createElement("div");
-          seg.className = "seg";
-          seg.style.background = PALETTE[c];
-          if (justPoured && justPoured.tube === i && j >= t.length - justPoured.count) {
-            seg.classList.add("pour-in");
-          }
-          liquid.append(seg);
-        });
+        const runs = runsOf(t);
+        runs.forEach((r, j) => liquid.append(makeRun(r.c, r.n, j === runs.length - 1)));
         tube.append(liquid);
         tube.addEventListener("pointerdown", (e) => {
           e.preventDefault();
@@ -203,11 +298,10 @@
         return tube;
       })
     );
-    justPoured = null;
   }
 
   $undo.addEventListener("click", () => {
-    if (!undoStack.length) return;
+    if (!undoStack.length || animating) return;
     tubes = undoStack.pop();
     sel = -1;
     hideOverlay();
@@ -216,6 +310,7 @@
   });
 
   $restart.addEventListener("click", () => {
+    if (animating) return;
     tubes = deep(initial);
     undoStack = [];
     extraUsed = false;
@@ -226,7 +321,7 @@
   });
 
   $extra.addEventListener("click", () => {
-    if (extraUsed) return;
+    if (extraUsed || animating) return;
     undoStack.push(deep(tubes));
     tubes = tubes.concat([[]]);
     extraUsed = true;

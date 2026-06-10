@@ -1,4 +1,4 @@
-const CACHE = "pour-v1";
+const CACHE = "pour-v2";
 const ASSETS = [
   ".",
   "index.html",

@@ -66,48 +66,103 @@ body {
   flex-wrap: wrap;
   align-content: center;
   justify-content: center;
-  gap: 26px 12px;
-  padding: 20px 14px calc(env(safe-area-inset-bottom, 0px) + 24px);
+  gap: 30px 13px;
+  padding: 24px 14px calc(env(safe-area-inset-bottom, 0px) + 24px);
 }
+
+/* Tube: glass body with rim and a vertical shine */
 
 .tube {
   position: relative;
   width: clamp(36px, 11vw, 52px);
   aspect-ratio: 10 / 33;
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  border-top-color: rgba(255, 255, 255, 0.65);
-  border-radius: 8px 8px 999px 999px;
-  background: rgba(255, 255, 255, 0.07);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  border: 2px solid rgba(255, 255, 255, 0.38);
+  border-top: none;
+  border-radius: 7px 7px 999px 999px;
+  background: linear-gradient(105deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.04) 45%, rgba(255, 255, 255, 0.12));
+  box-shadow: inset 0 -6px 12px rgba(255, 255, 255, 0.06), 0 10px 18px rgba(0, 0, 0, 0.28);
+  transform-origin: 50% 0;
+  transition: transform 0.24s ease, box-shadow 0.2s ease;
   cursor: pointer;
 }
 
+.tube::before {
+  /* rim */
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -6px;
+  right: -6px;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.3));
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  z-index: 3;
+}
+
+.tube::after {
+  /* glass shine */
+  content: "";
+  position: absolute;
+  top: 7%;
+  bottom: 9%;
+  left: 13%;
+  width: 16%;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.04));
+  pointer-events: none;
+  z-index: 2;
+}
+
 .tube.selected {
-  transform: translateY(-14px);
-  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.35), 0 0 0 3px rgba(255, 214, 10, 0.85);
+  transform: translateY(-16px);
+  box-shadow: 0 14px 22px rgba(0, 0, 0, 0.4), 0 0 0 3px rgba(255, 214, 10, 0.85);
+}
+
+.tube.pouring {
+  z-index: 20;
+  transition: transform 0.24s ease-in-out;
+  cursor: default;
 }
 
 .liquid {
   position: absolute;
   inset: 3px;
-  border-radius: 5px 5px 999px 999px;
+  border-radius: 4px 4px 999px 999px;
   overflow: hidden;
   display: flex;
   flex-direction: column-reverse;
 }
 
-.seg {
+.run {
+  position: relative;
   width: 100%;
-  height: 25%;
   flex-shrink: 0;
+  transition: height 0.32s ease, opacity 0.26s ease;
 }
 
-.seg.pour-in {
-  animation: pour-in 0.22s ease;
-  transform-origin: bottom;
+.surface {
+  /* curved meniscus on the topmost color */
+  position: absolute;
+  top: -3px;
+  left: 0;
+  right: 0;
+  height: 7px;
+  border-radius: 50%;
+  opacity: 0.85;
 }
 
-@keyframes pour-in {
+.stream {
+  position: fixed;
+  width: 6px;
+  border-radius: 3px;
+  z-index: 15;
+  pointer-events: none;
+  transform-origin: top;
+  animation: stream-in 0.12s ease;
+}
+
+@keyframes stream-in {
   from { transform: scaleY(0); }
   to { transform: scaleY(1); }
 }
@@ -124,7 +179,7 @@ body {
   backdrop-filter: blur(14px);
   opacity: 1;
   transition: opacity 0.25s ease;
-  z-index: 10;
+  z-index: 30;
 }
 
 .overlay.hidden {
