@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>Stack</title>
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Stack">
+  <meta name="theme-color" content="#15162b">
+
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="game"></canvas>
+
+  <div class="hud">
+    <div id="score">0</div>
+    <div id="best"></div>
+  </div>
+
+  <div class="overlay" id="overlay">
+    <div class="overlay-card">
+      <h1 id="ov-title">Stack</h1>
+      <p id="ov-sub">Tap to drop the sliding block.<br>Anything hanging over the edge gets sliced off.<br>How high can you go?</p>
+      <p class="hint" id="ov-hint">Tap to start</p>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>

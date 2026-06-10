@@ -1,0 +1,24 @@
+{
+  "name": "Stack",
+  "short_name": "Stack",
+  "description": "A one-tap tower stacking game. Drop blocks, build combos, beat your best.",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#15162b",
+  "theme_color": "#15162b",
+  "icons": [
+    {
+      "src": "icons/icon-180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
