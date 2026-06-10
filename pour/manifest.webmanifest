@@ -1,0 +1,24 @@
+{
+  "name": "Pour",
+  "short_name": "Pour",
+  "description": "A relaxing water-sort puzzle. Endless levels, progressively harder.",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#16173f",
+  "theme_color": "#16173f",
+  "icons": [
+    {
+      "src": "icons/icon-180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
