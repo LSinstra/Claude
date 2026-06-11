@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>T-2 Pomočnik</title>
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="T-2 Pomočnik">
+  <meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <h1 id="view-title">Paketi</h1>
+  </header>
+
+  <!-- ─── Paketi ─── -->
+  <main class="view" id="view-paketi">
+    <section class="card">
+      <h2>Pomagaj mi izbrati</h2>
+
+      <p class="q-label">Televizija</p>
+      <div class="seg" data-q="tv">
+        <button data-v="0">Ne rabim</button>
+        <button data-v="1" class="on">Osnovna</button>
+        <button data-v="2">Premium / HBO</button>
+      </div>
+
+      <p class="q-label">Hitrost interneta</p>
+      <div class="seg" data-q="speed">
+        <button data-v="0">Osnovna</button>
+        <button data-v="1" class="on">Srednja</button>
+        <button data-v="2">Najvišja</button>
+      </div>
+
+      <p class="q-label">Proračun</p>
+      <div class="seg" data-q="budget">
+        <button data-v="0" class="on">Čim ceneje</button>
+        <button data-v="1">Ni pomembno</button>
+      </div>
+    </section>
+
+    <section class="card reco" id="reco"></section>
+
+    <h3 class="list-title">Vsi oranžni paketi</h3>
+    <div id="packages"></div>
+
+    <p class="disclaimer">Neuradna aplikacija. Informativne cene s spletne strani t-2.net (junij 2026) — aktualno ponudbo preveri na <a href="https://www.t-2.net/" target="_blank" rel="noopener">t-2.net</a>.</p>
+  </main>
+
+  <!-- ─── Stroški ─── -->
+  <main class="view" id="view-stroski" hidden>
+    <section class="card" id="promo-card">
+      <h2>Akcijska cena</h2>
+      <p class="sub">Akcije se iztečejo tiho — nastavi opomnik, da te redna cena ne preseneti.</p>
+      <div class="form-grid">
+        <label>Akcijska cena
+          <input type="number" id="promo-price" inputmode="decimal" placeholder="29,99" step="0.01" min="0">
+        </label>
+        <label>Redna cena
+          <input type="number" id="promo-regular" inputmode="decimal" placeholder="87,99" step="0.01" min="0">
+        </label>
+        <label>Začetek akcije
+          <input type="month" id="promo-start">
+        </label>
+        <label>Trajanje (mes.)
+          <input type="number" id="promo-months" inputmode="numeric" placeholder="12" step="1" min="1" max="36">
+        </label>
+      </div>
+      <button class="primary" id="promo-save">Shrani</button>
+      <div id="promo-status"></div>
+    </section>
+
+    <section class="card">
+      <h2>Mesečni računi</h2>
+      <div class="bill-add">
+        <input type="number" id="bill-amount" inputmode="decimal" placeholder="Znesek zadnjega računa (€)" step="0.01" min="0">
+        <button class="primary" id="bill-add">Dodaj</button>
+      </div>
+      <div id="bill-chart"></div>
+      <ul id="bill-list"></ul>
+      <p class="sub" id="bill-summary"></p>
+    </section>
+  </main>
+
+  <!-- ─── Pomoč ─── -->
+  <main class="view" id="view-pomoc" hidden>
+    <section class="card">
+      <h2>Internet ne dela?</h2>
+      <ol class="steps">
+        <li>Izklopi modem/usmerjevalnik iz elektrike za <strong>30 sekund</strong>, nato ga priklopi nazaj in počakaj 2–3 minute.</li>
+        <li>Preveri lučke na modemu — <em>Power</em> in <em>Internet/DSL/Fiber</em> morata svetiti zeleno.</li>
+        <li>Preveri kable: napajanje, optika/telefonski kabel in mrežni kabel morajo biti trdno priklopljeni.</li>
+        <li>Težava samo na enem telefonu/računalniku? Izklopi in vklopi Wi-Fi na napravi ali jo ponovno zaženi.</li>
+        <li>Preveri stanje naročnine v portalu <strong>Moj T-2</strong>.</li>
+        <li>Še vedno nič? Pokliči podporo — številka spodaj. 👇</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>Kontakt in povezave</h2>
+      <div class="links">
+        <a class="link-btn" href="tel:+38664064064">📞 064 064 064 — pomoč naročnikom</a>
+        <a class="link-btn" href="mailto:info@t-2.net">✉️ info@t-2.net</a>
+        <a class="link-btn" href="https://login.t-2.net/authorize" target="_blank" rel="noopener">👤 Moj T-2 — portal</a>
+        <a class="link-btn" href="https://tv2go.t-2.net" target="_blank" rel="noopener">📺 tv2go — TV na poti</a>
+        <a class="link-btn" href="https://www.t-2.net/" target="_blank" rel="noopener">🌐 t-2.net</a>
+      </div>
+    </section>
+
+    <p class="disclaimer">Ta aplikacija ni povezana s podjetjem T-2 d.o.o. Vsi podatki so shranjeni samo na tvoji napravi.</p>
+  </main>
+
+  <nav class="tabbar">
+    <button class="tab on" data-view="paketi"><span>📦</span>Paketi</button>
+    <button class="tab" data-view="stroski"><span>💶</span>Stroški</button>
+    <button class="tab" data-view="pomoc"><span>🛟</span>Pomoč</button>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+</html>
