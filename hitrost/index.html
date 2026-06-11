@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>Hitrost</title>
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Hitrost">
+  <meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <h1>Hitrost</h1>
+    <span class="tagline">Ali dobiš, kar plačuješ?</span>
+  </header>
+
+  <main class="content">
+    <section class="card gauge-card">
+      <div class="gauge">
+        <svg viewBox="0 0 200 200">
+          <circle class="track" cx="100" cy="100" r="86"></circle>
+          <circle class="bar" id="gauge-bar" cx="100" cy="100" r="86"></circle>
+        </svg>
+        <div class="gauge-center">
+          <div class="mbps" id="mbps">—</div>
+          <div class="unit">Mbit/s</div>
+          <div class="phase" id="phase">pripravljen</div>
+        </div>
+      </div>
+      <button class="primary" id="start">Začni meritev</button>
+    </section>
+
+    <section class="stats">
+      <div class="stat"><span class="stat-label">↓ Prenos</span><span class="stat-val" id="stat-down">—</span></div>
+      <div class="stat"><span class="stat-label">↑ Nalaganje</span><span class="stat-val" id="stat-up">—</span></div>
+      <div class="stat"><span class="stat-label">⏱ Ping</span><span class="stat-val" id="stat-ping">—</span></div>
+    </section>
+
+    <section class="card">
+      <h2>Moj paket</h2>
+      <p class="sub">Vpiši hitrosti iz svoje T-2 naročnine in primerjaj z izmerjenim.</p>
+      <div class="plan-grid">
+        <label>Prenos (Mbit/s)
+          <input type="number" id="plan-down" inputmode="numeric" placeholder="npr. 250" min="1">
+        </label>
+        <label>Nalaganje (Mbit/s)
+          <input type="number" id="plan-up" inputmode="numeric" placeholder="npr. 100" min="1">
+        </label>
+      </div>
+      <div id="verdict"></div>
+    </section>
+
+    <section class="card">
+      <div class="row-between">
+        <h2>Zgodovina</h2>
+        <button class="ghost" id="clear" hidden>Počisti</button>
+      </div>
+      <div id="chart"></div>
+      <ul id="history"></ul>
+      <p class="sub" id="history-empty">Po prvi meritvi se rezultati shranijo sem — samo na tej napravi.</p>
+    </section>
+
+    <p class="disclaimer">Najtočnejši rezultat dobiš s kablom ali tik ob usmerjevalniku na 5 GHz Wi-Fi, ko nihče drug ne pretaka. Meri se prek strežnikov Cloudflare — rezultat je informativen. Neuradna aplikacija, ni povezana s T-2 d.o.o.</p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
