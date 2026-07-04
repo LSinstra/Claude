@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home Server · Apps</title>
+<style>
+  :root { color-scheme: dark; }
+  * { margin: 0; box-sizing: border-box; }
+  body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    font-family: system-ui, -apple-system, sans-serif;
+    background: #0f1117;
+    color: #e6e8ee;
+    padding: 2rem;
+  }
+  main { width: 100%; max-width: 640px; }
+  h1 { font-size: 1.5rem; margin-bottom: 0.25rem; }
+  p.sub { color: #8b90a0; margin-bottom: 2rem; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+  a.card {
+    display: block;
+    padding: 1.25rem 1rem;
+    background: #1a1d27;
+    border: 1px solid #2a2e3d;
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color .15s, transform .15s;
+  }
+  a.card:hover { border-color: #5b8cff; transform: translateY(-2px); }
+  a.card .name { font-weight: 600; margin-bottom: 0.25rem; }
+  a.card .desc { font-size: 0.85rem; color: #8b90a0; }
+</style>
+</head>
+<body>
+<main>
+  <h1>🍓 Home Server</h1>
+  <p class="sub">Apps running on the Raspberry Pi</p>
+  <div class="grid">
+    <a class="card" href="/memo/"><div class="name">Memo</div><div class="desc">Memory game PWA</div></a>
+    <a class="card" href="/pour/"><div class="name">Pour</div><div class="desc">Water sort puzzle</div></a>
+    <a class="card" href="/stack/"><div class="name">Stack</div><div class="desc">Stacking game</div></a>
+    <a class="card" href="/hitrost/"><div class="name">Hitrost</div><div class="desc">Speed test</div></a>
+    <a class="card" href="/t2/"><div class="name">T-2 Pomočnik</div><div class="desc">T-2 companion</div></a>
+  </div>
+</main>
+</body>
+</html>
