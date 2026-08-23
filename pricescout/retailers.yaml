@@ -1,0 +1,344 @@
+# European grocery retailer registry.
+#
+# adapter:  which extraction strategy to use (see pricescout/adapters/)
+# currency: ISO code used when the page does not state one
+# enabled:  set false to skip without deleting the entry
+#
+# Adding a JSON retailer needs no Python -- give it adapter: json and a `json:`
+# field map. Adding an HTML retailer usually needs nothing but a search_url,
+# because the generic adapter discovers cards adaptively.
+
+retailers:
+  # ---------------------------------------------------------------- Benelux
+  - name: Albert Heijn
+    country: NL
+    currency: EUR
+    adapter: ah
+    search_url: "https://www.ah.nl/zoeken?query={query}"
+
+  - name: Jumbo
+    country: NL
+    currency: EUR
+    adapter: generic
+    search_url: "https://www.jumbo.com/producten/?searchType=keyword&searchTerms={query}"
+
+  - name: Delhaize
+    country: BE
+    currency: EUR
+    adapter: generic
+    search_url: "https://www.delhaize.be/nl/shop/search?q={query}"
+
+  - name: Colruyt
+    country: BE
+    currency: EUR
+    adapter: generic
+    search_url: "https://www.colruyt.be/nl/zoeken?searchTerm={query}"
+
+  # --------------------------------------------------------------- DACH
+  - name: Lidl DE
+    country: DE
+    currency: EUR
+    adapter: nuxt
+    search_url: "https://www.lidl.de/q/search?q={query}"
+
+  - name: dm DE
+    country: DE
+    currency: EUR
+    adapter: generic
+    search_url: "https://www.dm.de/search?query={query}"
+
+  - name: REWE
+    country: DE
+    currency: EUR
+    adapter: generic
+    search_url: "https://www.rewe.de/produkte/suche/?search={query}"
+
+  - name: Kaufland DE
+    country: DE
+    currency: EUR
+    adapter: generic
+    search_url: "https://www.kaufland.de/s/?search_value={query}"
+
+  - name: BILLA AT
+    country: AT
+    currency: EUR
+    adapter: generic
+    search_url: "https://shop.billa.at/suche?query={query}"
+
+  - name: Coop CH
+    country: CH
+    currency: CHF
+    adapter: generic
+    search_url: "https://www.coop.ch/de/search/?text={query}"
+
+  - name: Migros CH
+    country: CH
+    currency: CHF
+    adapter: generic
+    search_url: "https://www.migros.ch/de/search?query={query}"
+
+  # --------------------------------------------------------------- France
+  - name: Auchan FR
+    country: FR
+    currency: EUR
+    adapter: generic
+    search_url: "https://www.auchan.fr/recherche?text={query}"
+
+  - name: Carrefour FR
+    country: FR
+    currency: EUR
+    adapter: generic
+    search_url: "https://www.carrefour.fr/s?q={query}"
+
+  - name: Monoprix
+    country: FR
+    currency: EUR
+    adapter: generic
+    search_url: "https://www.monoprix.fr/courses/rechercher?text={query}"
+
+  # ------------------------------------------------------------ UK & Ireland
+  - name: Tesco UK
+    country: GB
+    currency: GBP
+    adapter: generic
+    search_url: "https://www.tesco.com/groceries/en-GB/search?query={query}"
+
+  - name: Sainsbury's
+    country: GB
+    currency: GBP
+    adapter: generic
+    search_url: "https://www.sainsburys.co.uk/gol-ui/SearchResults/{query}"
+
+  - name: Waitrose
+    country: GB
+    currency: GBP
+    adapter: generic
+    search_url: "https://www.waitrose.com/ecom/shop/search?&searchTerm={query}"
+
+  - name: Ocado
+    country: GB
+    currency: GBP
+    adapter: generic
+    search_url: "https://www.ocado.com/search?entry={query}"
+
+  - name: Tesco IE
+    country: IE
+    currency: EUR
+    adapter: generic
+    search_url: "https://www.tesco.ie/groceries/en-IE/search?query={query}"
+
+  # --------------------------------------------------------------- Iberia
+  - name: Mercadona
+    country: ES
+    currency: EUR
+    adapter: generic
+    search_url: "https://tienda.mercadona.es/search-results?query={query}"
+
+  - name: Carrefour ES
+    country: ES
+    currency: EUR
+    adapter: generic
+    search_url: "https://www.carrefour.es/?q={query}"
+
+  - name: Continente
+    country: PT
+    currency: EUR
+    adapter: generic
+    search_url: "https://www.continente.pt/pesquisa/?q={query}"
+
+  # ---------------------------------------------------------------- Italy
+  - name: Esselunga
+    country: IT
+    currency: EUR
+    adapter: generic
+    search_url: "https://www.esselunga.it/it-it/ricerca.html?q={query}"
+
+  - name: Carrefour IT
+    country: IT
+    currency: EUR
+    adapter: generic
+    search_url: "https://www.carrefour.it/ricerca?q={query}"
+
+  # ------------------------------------------------------------- Nordics
+  - name: Oda
+    country: "NO"
+    currency: NOK
+    adapter: oda
+    search_url: "https://oda.com/no/search/?q={query}"
+
+  - name: ICA
+    country: SE
+    currency: SEK
+    adapter: generic
+    search_url: "https://www.ica.se/handla/sok/?q={query}"
+
+  - name: Coop SE
+    country: SE
+    currency: SEK
+    adapter: generic
+    search_url: "https://www.coop.se/handla/sok/?q={query}"
+
+  - name: Nemlig
+    country: DK
+    currency: DKK
+    adapter: generic
+    search_url: "https://www.nemlig.com/search?query={query}"
+
+  - name: S-kaupat
+    country: FI
+    currency: EUR
+    adapter: generic
+    search_url: "https://www.s-kaupat.fi/haku?queryString={query}"
+
+  # ------------------------------------------------------- Central & Eastern
+  - name: Mercator
+    country: SI
+    currency: EUR
+    adapter: generic
+    search_url: "https://www.mercator.si/iskanje/?q={query}"
+
+  - name: Tus
+    country: SI
+    currency: EUR
+    adapter: generic
+    search_url: "https://www.tus.si/?s={query}"
+
+  - name: Spar SI
+    country: SI
+    currency: EUR
+    adapter: generic
+    search_url: "https://www.spar.si/iskanje?q={query}"
+
+  - name: Konzum HR
+    country: HR
+    currency: EUR
+    adapter: generic
+    search_url: "https://www.konzum.hr/web/search?q={query}"
+
+  - name: Frisco PL
+    country: PL
+    currency: PLN
+    adapter: generic
+    search_url: "https://www.frisco.pl/q,{query}/stn,searchResults"
+
+
+  - name: Tesco HU
+    country: HU
+    currency: HUF
+    adapter: generic
+    search_url: "https://bevasarlas.tesco.hu/groceries/hu-HU/search?query={query}"
+
+  - name: Auchan RO
+    country: RO
+    currency: RON
+    adapter: generic
+    search_url: "https://www.auchan.ro/cauta?q={query}"
+
+  - name: Kaufland BG
+    country: BG
+    currency: BGN
+    adapter: generic
+    search_url: "https://www.kaufland.bg/s/?search_value={query}"
+
+  - name: Barbora EE
+    country: EE
+    currency: EUR
+    adapter: generic
+    search_url: "https://barbora.ee/search?q={query}"
+
+  - name: Barbora LT
+    country: LT
+    currency: EUR
+    adapter: generic
+    search_url: "https://barbora.lt/paieska?q={query}"
+
+  - name: Rimi LV
+    country: LV
+    currency: EUR
+    adapter: generic
+    search_url: "https://www.rimi.lv/e-veikals/lv/meklet?query={query}"
+
+  - name: AB Vassilopoulos
+    country: GR
+    currency: EUR
+    adapter: generic
+    search_url: "https://www.ab.gr/search?q={query}"
+
+  # ------------------------------------------------- Rohlik Group platform
+  # One codebase serving five markets; the same search-metadata endpoint
+  # returns pack size and retailer-computed price-per-unit in every country.
+
+  - name: Rohlik
+    country: CZ
+    currency: CZK
+    adapter: json
+    search_url: "https://www.rohlik.cz/services/frontend-service/search-metadata?search={query}&companyId=1"
+    json:
+      items: "data.productList"
+      name: "productName"
+      price: "price.full"
+      size: "textualAmount"
+      unit_price_value: "pricePerUnit.full"
+      unit_price_unit: "unit"
+      url: "baseLink"
+      url_prefix: "https://www.rohlik.cz/"
+
+  - name: Knuspr
+    country: DE
+    currency: EUR
+    adapter: json
+    search_url: "https://www.knuspr.de/services/frontend-service/search-metadata?search={query}&companyId=1"
+    json:
+      items: "data.productList"
+      name: "productName"
+      price: "price.full"
+      size: "textualAmount"
+      unit_price_value: "pricePerUnit.full"
+      unit_price_unit: "unit"
+      url: "baseLink"
+      url_prefix: "https://www.knuspr.de/"
+
+  - name: Gurkerl
+    country: AT
+    currency: EUR
+    adapter: json
+    search_url: "https://www.gurkerl.at/services/frontend-service/search-metadata?search={query}&companyId=1"
+    json:
+      items: "data.productList"
+      name: "productName"
+      price: "price.full"
+      size: "textualAmount"
+      unit_price_value: "pricePerUnit.full"
+      unit_price_unit: "unit"
+      url: "baseLink"
+      url_prefix: "https://www.gurkerl.at/"
+
+  - name: Kifli
+    country: HU
+    currency: HUF
+    adapter: json
+    search_url: "https://www.kifli.hu/services/frontend-service/search-metadata?search={query}&companyId=1"
+    json:
+      items: "data.productList"
+      name: "productName"
+      price: "price.full"
+      size: "textualAmount"
+      unit_price_value: "pricePerUnit.full"
+      unit_price_unit: "unit"
+      url: "baseLink"
+      url_prefix: "https://www.kifli.hu/"
+
+  - name: Sezamo
+    country: RO
+    currency: RON
+    adapter: json
+    search_url: "https://www.sezamo.ro/services/frontend-service/search-metadata?search={query}&companyId=1"
+    json:
+      items: "data.productList"
+      name: "productName"
+      price: "price.full"
+      size: "textualAmount"
+      unit_price_value: "pricePerUnit.full"
+      unit_price_unit: "unit"
+      url: "baseLink"
+      url_prefix: "https://www.sezamo.ro/"

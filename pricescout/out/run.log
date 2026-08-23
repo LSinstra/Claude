@@ -1,0 +1,65 @@
+
+==========================================================================
+  513 plant-based price rows from 9/46 retailers
+==========================================================================
+
+  Country    rows   median EUR/kg
+  -------------------------------
+  NL          119            9.61
+  DE          110           15.57
+  AT           81           17.56
+  RO           59           12.83
+  CZ           57            9.77
+  HU           44           17.34
+  NO           32           16.65
+
+  Category                rows   median EUR/kg
+  --------------------------------------------
+  tofu_tempeh_seitan       202           13.18
+  plant_milk                69            2.89
+  plant_meat                29           23.45
+  legumes_pulses             2           19.94
+  plant_cheese               2           19.48
+
+  No data from 37 retailers:
+    - AB Vassilopoulos       reachable but no parseable products
+    - Auchan RO              reachable but no parseable products
+    - BILLA AT               search URL not valid
+    - Barbora EE             reachable but no parseable products
+    - Barbora LT             blocked (bot protection / auth required)
+    - Carrefour ES           blocked (bot protection / auth required)
+    - Carrefour FR           blocked (bot protection / auth required)
+    - Carrefour IT           search URL not valid
+    - Colruyt                search URL not valid
+    - Continente             robots.txt disallows
+    - Coop CH                blocked (bot protection / auth required)
+    - Coop SE                reachable but no parseable products
+    - Delhaize               reachable but no parseable products
+    - Esselunga              reachable but no parseable products
+    - Frisco PL              reachable but no parseable products
+    - ICA                    reachable but no parseable products
+    - Kaufland BG            search URL not valid
+    - Kaufland DE            blocked (bot protection / auth required)
+    - Konzum HR              reachable but no parseable products
+    - Lidl DE                reachable but no parseable products
+    - Mercadona              robots.txt disallows
+    - Mercator               reachable but no parseable products
+    - Migros CH              blocked (bot protection / auth required)
+    - Monoprix               blocked (bot protection / auth required)
+    - Nemlig                 reachable but no parseable products
+    - Ocado                  reachable but no parseable products
+    - REWE                   blocked (bot protection / auth required)
+    - Rimi LV                search URL not valid
+    - S-kaupat               rate limited
+    - Sainsbury's            blocked (bot protection / auth required)
+    - Spar SI                blocked (bot protection / auth required)
+    - Tesco HU               blocked (bot protection / auth required)
+    - Tesco IE               blocked (bot protection / auth required)
+    - Tesco UK               blocked (bot protection / auth required)
+    - Tus                    reachable but no parseable products
+    - Waitrose               timeout
+    - dm DE                  robots.txt disallows
+
+  CSV      /home/user/Claude/pricescout/out/prices.csv
+  JSON     /home/user/Claude/pricescout/out/prices.json
+  Coverage /home/user/Claude/pricescout/out/coverage.json

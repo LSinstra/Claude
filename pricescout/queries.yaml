@@ -1,0 +1,38 @@
+# Search terms per market. Each retailer is queried with the term list for its
+# country, falling back to `default`. Keeping terms native-language matters:
+# searching "oat milk" on a German site returns nothing useful.
+
+default:
+  - tofu
+  - tempeh
+  - vegan burger
+  - oat milk
+  - vegan cheese
+
+by_country:
+  NL: [tofu, tempeh, vega burger, haverdrink, vegan kaas]
+  BE: [tofu, tempeh, vegan burger, haverdrink, vegan kaas]
+  DE: [tofu, tempeh, vegane burger, haferdrink, veganer kase]
+  AT: [tofu, tempeh, vegane burger, haferdrink, veganer kase]
+  CH: [tofu, tempeh, vegan burger, hafderdrink, vegan kase]
+  FR: [tofu, tempeh, steak vegetal, boisson avoine, fromage vegetal]
+  GB: [tofu, tempeh, vegan burger, oat milk, vegan cheese]
+  IE: [tofu, tempeh, vegan burger, oat milk, vegan cheese]
+  ES: [tofu, tempeh, hamburguesa vegana, bebida de avena, queso vegano]
+  PT: [tofu, tempeh, hamburguer vegano, bebida de aveia, queijo vegano]
+  IT: [tofu, tempeh, hamburger vegetale, bevanda avena, formaggio vegano]
+  "NO": [tofu, tempeh, vegansk burger, havredrikk, vegansk ost]
+  SE: [tofu, tempeh, vegansk burgare, havredryck, vegansk ost]
+  DK: [tofu, tempeh, vegansk burger, havredrik, vegansk ost]
+  FI: [tofu, tempeh, vegaani burgeri, kaurajuoma, vegaaninen juusto]
+  SI: [tofu, tempeh, rastlinski burger, ovseni napitek, veganski sir]
+  HR: [tofu, tempeh, veganski burger, zobeni napitak, veganski sir]
+  PL: [tofu, tempeh, burger roslinny, napoj owsiany, ser weganski]
+  CZ: [tofu, tempeh, rostlinny burger, ovesny napoj, vegansky syr]
+  HU: [tofu, tempeh, vegan burger, zabital, vegan sajt]
+  RO: [tofu, tempeh, burger vegan, bautura de ovaz, branza vegana]
+  BG: [tofu, tempeh, vegan burger, ovesena napitka, vegansko sirene]
+  EE: [tofu, tempeh, vegan burger, kaerajook, vegan juust]
+  LT: [tofu, tempeh, veganiskas burgeris, avizinis gerimas, veganiskas suris]
+  LV: [tofu, tempeh, vegan burgeris, auzu dzeriens, vegan siers]
+  GR: [tofu, tempeh, vegan burger, rofima vromis, vegan tyri]

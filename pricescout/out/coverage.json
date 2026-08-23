@@ -1,0 +1,418 @@
+[
+ {
+  "retailer": "AB Vassilopoulos",
+  "queries_ok": 5,
+  "queries_failed": 0,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": []
+ },
+ {
+  "retailer": "Albert Heijn",
+  "queries_ok": 5,
+  "queries_failed": 0,
+  "raw_rows": 129,
+  "plant_based_rows": 99,
+  "failure_reasons": []
+ },
+ {
+  "retailer": "Auchan FR",
+  "queries_ok": 5,
+  "queries_failed": 0,
+  "raw_rows": 6,
+  "plant_based_rows": 1,
+  "failure_reasons": []
+ },
+ {
+  "retailer": "Auchan RO",
+  "queries_ok": 5,
+  "queries_failed": 0,
+  "raw_rows": 120,
+  "plant_based_rows": 0,
+  "failure_reasons": []
+ },
+ {
+  "retailer": "BILLA AT",
+  "queries_ok": 0,
+  "queries_failed": 5,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": [
+   "search URL not valid"
+  ]
+ },
+ {
+  "retailer": "Barbora EE",
+  "queries_ok": 5,
+  "queries_failed": 0,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": []
+ },
+ {
+  "retailer": "Barbora LT",
+  "queries_ok": 0,
+  "queries_failed": 5,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": [
+   "blocked (bot protection / auth required)"
+  ]
+ },
+ {
+  "retailer": "Carrefour ES",
+  "queries_ok": 0,
+  "queries_failed": 5,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": [
+   "blocked (bot protection / auth required)"
+  ]
+ },
+ {
+  "retailer": "Carrefour FR",
+  "queries_ok": 0,
+  "queries_failed": 5,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": [
+   "blocked (bot protection / auth required)"
+  ]
+ },
+ {
+  "retailer": "Carrefour IT",
+  "queries_ok": 0,
+  "queries_failed": 5,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": [
+   "search URL not valid"
+  ]
+ },
+ {
+  "retailer": "Colruyt",
+  "queries_ok": 0,
+  "queries_failed": 5,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": [
+   "search URL not valid"
+  ]
+ },
+ {
+  "retailer": "Continente",
+  "queries_ok": 0,
+  "queries_failed": 5,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": [
+   "robots.txt disallows"
+  ]
+ },
+ {
+  "retailer": "Coop CH",
+  "queries_ok": 0,
+  "queries_failed": 5,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": [
+   "blocked (bot protection / auth required)"
+  ]
+ },
+ {
+  "retailer": "Coop SE",
+  "queries_ok": 5,
+  "queries_failed": 0,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": []
+ },
+ {
+  "retailer": "Delhaize",
+  "queries_ok": 5,
+  "queries_failed": 0,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": []
+ },
+ {
+  "retailer": "Esselunga",
+  "queries_ok": 5,
+  "queries_failed": 0,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": []
+ },
+ {
+  "retailer": "Frisco PL",
+  "queries_ok": 5,
+  "queries_failed": 0,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": []
+ },
+ {
+  "retailer": "Gurkerl",
+  "queries_ok": 5,
+  "queries_failed": 0,
+  "raw_rows": 119,
+  "plant_based_rows": 81,
+  "failure_reasons": []
+ },
+ {
+  "retailer": "ICA",
+  "queries_ok": 5,
+  "queries_failed": 0,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": []
+ },
+ {
+  "retailer": "Jumbo",
+  "queries_ok": 4,
+  "queries_failed": 1,
+  "raw_rows": 51,
+  "plant_based_rows": 30,
+  "failure_reasons": [
+   "blocked (bot protection / auth required)"
+  ]
+ },
+ {
+  "retailer": "Kaufland BG",
+  "queries_ok": 0,
+  "queries_failed": 5,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": [
+   "search URL not valid"
+  ]
+ },
+ {
+  "retailer": "Kaufland DE",
+  "queries_ok": 0,
+  "queries_failed": 5,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": [
+   "blocked (bot protection / auth required)"
+  ]
+ },
+ {
+  "retailer": "Kifli",
+  "queries_ok": 5,
+  "queries_failed": 0,
+  "raw_rows": 101,
+  "plant_based_rows": 44,
+  "failure_reasons": []
+ },
+ {
+  "retailer": "Knuspr",
+  "queries_ok": 5,
+  "queries_failed": 0,
+  "raw_rows": 123,
+  "plant_based_rows": 110,
+  "failure_reasons": []
+ },
+ {
+  "retailer": "Konzum HR",
+  "queries_ok": 5,
+  "queries_failed": 0,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": []
+ },
+ {
+  "retailer": "Lidl DE",
+  "queries_ok": 5,
+  "queries_failed": 0,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": []
+ },
+ {
+  "retailer": "Mercadona",
+  "queries_ok": 0,
+  "queries_failed": 5,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": [
+   "robots.txt disallows"
+  ]
+ },
+ {
+  "retailer": "Mercator",
+  "queries_ok": 5,
+  "queries_failed": 0,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": []
+ },
+ {
+  "retailer": "Migros CH",
+  "queries_ok": 0,
+  "queries_failed": 5,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": [
+   "blocked (bot protection / auth required)"
+  ]
+ },
+ {
+  "retailer": "Monoprix",
+  "queries_ok": 0,
+  "queries_failed": 5,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": [
+   "blocked (bot protection / auth required)"
+  ]
+ },
+ {
+  "retailer": "Nemlig",
+  "queries_ok": 5,
+  "queries_failed": 0,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": []
+ },
+ {
+  "retailer": "Ocado",
+  "queries_ok": 5,
+  "queries_failed": 0,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": []
+ },
+ {
+  "retailer": "Oda",
+  "queries_ok": 5,
+  "queries_failed": 0,
+  "raw_rows": 138,
+  "plant_based_rows": 32,
+  "failure_reasons": []
+ },
+ {
+  "retailer": "REWE",
+  "queries_ok": 0,
+  "queries_failed": 5,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": [
+   "blocked (bot protection / auth required)"
+  ]
+ },
+ {
+  "retailer": "Rimi LV",
+  "queries_ok": 0,
+  "queries_failed": 5,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": [
+   "search URL not valid"
+  ]
+ },
+ {
+  "retailer": "Rohlik",
+  "queries_ok": 5,
+  "queries_failed": 0,
+  "raw_rows": 115,
+  "plant_based_rows": 57,
+  "failure_reasons": []
+ },
+ {
+  "retailer": "S-kaupat",
+  "queries_ok": 0,
+  "queries_failed": 5,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": [
+   "rate limited"
+  ]
+ },
+ {
+  "retailer": "Sainsbury's",
+  "queries_ok": 0,
+  "queries_failed": 5,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": [
+   "blocked (bot protection / auth required)"
+  ]
+ },
+ {
+  "retailer": "Sezamo",
+  "queries_ok": 5,
+  "queries_failed": 0,
+  "raw_rows": 97,
+  "plant_based_rows": 59,
+  "failure_reasons": []
+ },
+ {
+  "retailer": "Spar SI",
+  "queries_ok": 0,
+  "queries_failed": 5,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": [
+   "blocked (bot protection / auth required)"
+  ]
+ },
+ {
+  "retailer": "Tesco HU",
+  "queries_ok": 0,
+  "queries_failed": 5,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": [
+   "blocked (bot protection / auth required)"
+  ]
+ },
+ {
+  "retailer": "Tesco IE",
+  "queries_ok": 0,
+  "queries_failed": 5,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": [
+   "blocked (bot protection / auth required)"
+  ]
+ },
+ {
+  "retailer": "Tesco UK",
+  "queries_ok": 0,
+  "queries_failed": 5,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": [
+   "blocked (bot protection / auth required)"
+  ]
+ },
+ {
+  "retailer": "Tus",
+  "queries_ok": 5,
+  "queries_failed": 0,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": []
+ },
+ {
+  "retailer": "Waitrose",
+  "queries_ok": 0,
+  "queries_failed": 5,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": [
+   "timeout"
+  ]
+ },
+ {
+  "retailer": "dm DE",
+  "queries_ok": 0,
+  "queries_failed": 5,
+  "raw_rows": 0,
+  "plant_based_rows": 0,
+  "failure_reasons": [
+   "robots.txt disallows"
+  ]
+ }
+]
