@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>Marbles Cam</title>
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Marbles Cam">
+  <meta name="theme-color" content="#000000">
+
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png">
+  <link rel="apple-touch-startup-image" href="icons/splash-1206x2622.png"
+        media="(device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3)">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Shoot screen -->
+  <main class="screen" id="screen-home">
+    <header class="brand">
+      <h1>Marbles cam</h1>
+      <span class="milestone">M1</span>
+    </header>
+
+    <div class="home-middle">
+      <button class="capture-btn" id="btn-flash">
+        <span>Shoot<br>with flash</span>
+      </button>
+      <p class="home-hint">Opens the camera. Set flash to on, kill the lights, 40 to 80 cm from the subject.</p>
+    </div>
+
+    <div class="home-bottom">
+      <button class="secondary-btn" id="btn-import">Import from photos</button>
+      <p class="notice" id="notice" hidden></p>
+    </div>
+
+    <input type="file" accept="image/*" capture="environment" id="input-flash" hidden>
+    <input type="file" accept="image/*" id="input-import" hidden>
+  </main>
+
+  <!-- Review screen -->
+  <main class="screen" id="screen-review" hidden>
+    <header class="review-top">
+      <button class="ghost-btn" id="btn-retake">Retake</button>
+      <div class="seg" id="seg-view">
+        <button class="on" data-v="look">Look</button>
+        <button data-v="raw">Raw</button>
+      </div>
+    </header>
+
+    <div class="stage" id="stage">
+      <canvas id="view-canvas"></canvas>
+      <div class="subject-dot" id="subject-dot" hidden></div>
+      <div class="busy" id="busy" hidden><div class="busy-ring"></div></div>
+    </div>
+
+    <p class="meta" id="meta"></p>
+    <p class="meta warn" id="flash-warn" hidden>No flash detected. Keep anyway or retake.</p>
+    <p class="meta-hint">Tap the image to set the falloff centre</p>
+
+    <footer class="review-bottom">
+      <div class="seg" id="seg-size">
+        <button class="on" data-size="4096">Full 4096</button>
+        <button data-size="2048">Web 2048</button>
+        <button data-size="square">Square 1080</button>
+      </div>
+      <div class="row">
+        <button class="primary-btn" id="btn-share">Share</button>
+        <button class="secondary-btn" id="btn-download">Download</button>
+      </div>
+    </footer>
+  </main>
+
+  <!-- First-run flash checklist -->
+  <div class="overlay" id="checklist" hidden>
+    <div class="overlay-card">
+      <h2>Before you shoot</h2>
+      <ul class="check">
+        <li>Flash on. Tap the flash icon, pick on, not auto</li>
+        <li>Night mode off. It turns itself off with flash on</li>
+        <li>Lights off</li>
+        <li>Distance 40 to 80 cm</li>
+      </ul>
+      <button class="primary-btn" id="checklist-go">Open camera</button>
+    </div>
+  </div>
+
+  <script src="vendor/exifr.umd.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
