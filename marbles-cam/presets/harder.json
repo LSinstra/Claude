@@ -1,0 +1,21 @@
+{
+  "name": "harder",
+  "version": 1,
+  "wbTemp": 0.12,
+  "wbTint": 0.0,
+  "targetLuma": 0.63,
+  "blackPoint": 12,
+  "whitePoint": 250,
+  "contrast": 0.35,
+  "highlightRecovery": 0.3,
+  "falloffStart": 0.35,
+  "falloffStrength": 0.75,
+  "falloffCurve": 2.0,
+  "vibrance": 0.2,
+  "saturation": 0.08,
+  "juicyBoost": 0.1,
+  "sharpenRadius": 1.2,
+  "sharpenAmount": 0.7,
+  "sharpenThreshold": 4,
+  "grain": 0.05
+}
